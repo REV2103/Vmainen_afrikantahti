@@ -41,7 +41,7 @@ def cardselector():
             "Card Name": card_name,
             "Card Effect": card_effect
         }
-    except ValueError: #virheenkäsittelyä, mikäli reitti on liian pitkä tai lyhyt
+    except ValueError: 
         tilakoodi = 400
         response = {
                 "status": tilakoodi,
@@ -49,3 +49,10 @@ def cardselector():
             }
     jsonvast = json.dumps(response)
     return Response(response=jsonvast, status=tilakoodi, mimetype="application/json")
+
+@app.errorhandler(404)  # error handling
+def page_not_found(error):
+    return jsonify({"error": "Not found", "code": 404}), 404
+
+if __name__ == '__main__':
+    app.run(use_reloader=True, host='127.0.0.1', port=3000)
