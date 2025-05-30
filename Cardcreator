@@ -1,0 +1,2 @@
+for i in range (96):
+    print(f"INSERT INTO cards VALUES ('{i}', 'name', 'effect');")
