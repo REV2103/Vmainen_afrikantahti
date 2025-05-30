@@ -24,14 +24,14 @@ def cardselector():
         card_id = ""
         card_name = ""
         card_effect = ""
-        status = 200
+        tilakoodi = 200
 
         num = random.randint(1, 95)
 
         sql = f"select Cardnum, Name, Effect from cards where Cardnum = '{num}' LIMIT 1;"
         cursor = yhteys.cursor()
         cursor.execute(sql)
-        result = cursor.fetchall
+        result = cursor.fetchall()
         for row in result:
             card_id = row[0]
             card_name = row[1]
