@@ -1,2 +1,5 @@
-for i in range (96):
-    print(f"INSERT INTO cards VALUES ('{i}', 'name', 'effect');")
+current_cards = int(input("input the current amount of cards: "))
+desired_cards = int(input("Input the desired amount of cards: "))
+needed_cards = desired_cards-current_cards
+for i in range (needed_cards):
+    print(f"INSERT INTO cards VALUES ('{i+current_cards+1}', 'name', 'effect');")
